@@ -1,17 +1,11 @@
 package org.reservation.system;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import io.muserver.Method;
 import io.muserver.MuServer;
 import io.muserver.MuServerBuilder;
 import io.muserver.rest.BasicAuthSecurityFilter;
 import io.muserver.rest.RestHandlerBuilder;
-import lombok.*;
 import org.reservation.system.model.Bookings;
 import org.reservation.system.util.MyAuthorizer;
 import org.reservation.system.util.MyUserPassAuthenticator;
@@ -19,7 +13,6 @@ import org.reservation.system.util.MyUserPassAuthenticator;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
-import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -49,7 +42,7 @@ public class ReservationRest {
                                     .addCustomWriter(new JacksonJaxbJsonProvider())
                                     .addCustomReader(new JacksonJaxbJsonProvider())
                     )
-                    .addHandler(Method.GET, "/admin", (request, response, pathParams) -> {
+                    .addHandler(Method.GET, "/getBookings", (request, response, pathParams) -> {
                 response.contentType("text/html");
                 response.write(getDemoPageHtml());
             })
