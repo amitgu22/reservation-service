@@ -1,6 +1,6 @@
 # reservation-service
 
-REST API demonstration using MuServer library for simpler and faster REST API based on JAX-RS implementation.
+REST API demonstration using MuServer library for simpler and faster REST API creation based on JAX-RS implementation.
 
 ## Mu server API documentation - https://muserver.io/
 
