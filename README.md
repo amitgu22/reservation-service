@@ -24,10 +24,7 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
        
 ## JSON Request for adding new booking
 
-       library provided SecuritContext configuration for role based API access
-       Java 8 streams API
-       Mu standalone http web server
-       Handler mapping for rest resources and security features       
+            
 
        {
         "status": "New Booking",
