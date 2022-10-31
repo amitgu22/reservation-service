@@ -48,6 +48,7 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
        API details can be obtain using Open API documentaion link
        
        https://localhost:{port}/api.html
+       
 
        {
         "status": "New Booking",
