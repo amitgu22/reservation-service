@@ -38,6 +38,7 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
        # Mu standalone http web server
        # Handler mapping for rest resources and security features
        # Extremely simple HTTPS configuration 
+       # Handler mapping for documentation
 
 
        
