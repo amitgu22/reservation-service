@@ -4,22 +4,22 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
 
 ## Mu server API documentation - https://muserver.io/
 
-       Flexible routing and filtering with request handlers
-       A clean model giving simple access to request and response objects
-       HTTP/2 Support
-       Convenient static resource handling, with GZIP, range requests, and custom response headers based on file type.
-       Extremely simple HTTPS configuration including Let's Encrypt integration
-       Server Sent Events
-       Web Sockets
-       JAX-RS Rest support with no extra dependencies, including:
-       Automatic documentation for rest services
-       Simple CORS support for JAX-RS
-       File Upload support
-       Optional async handling
-       Path contexts
-       A Reverse Proxy handler
-       Statistics
-       Various useful utilities
+       # Flexible routing and filtering with request handlers
+       # A clean model giving simple access to request and response objects
+       # HTTP/2 Support
+       # Convenient static resource handling, with GZIP, range requests, and custom response headers based on file type.
+       # Extremely simple HTTPS configuration including Let's Encrypt integration
+       # Server Sent Events
+       # Web Sockets
+       # JAX-RS Rest support with no extra dependencies, including:
+       # Automatic documentation for rest services
+       # Simple CORS support for JAX-RS
+       # File Upload support
+       # Optional async handling
+       # Path contexts
+       # A Reverse Proxy handler
+       # Statistics
+       # Various useful utilities
 
 ## Requirements
 
