@@ -39,16 +39,15 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
        # Handler mapping for rest resources and security features
        # Extremely simple HTTPS configuration 
        # Handler mapping for documentation
+       # https://localhost:{port}/api.html
 
 
        
        
 ## JSON Request for adding new booking
 
-       API details can be obtain using Open API documentaion link
        
-       https://localhost:{port}/api.html
-       
+   
 
        {
         "status": "New Booking",
