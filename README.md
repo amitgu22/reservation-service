@@ -11,6 +11,7 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
 2: As the restaurant owner I want to be able to see all bookings for a particular day.
 
 
+![Flow_Diagram](https://user-images.githubusercontent.com/11241862/199072159-e00dc45b-4f39-4e09-ab26-9efecd5c46bc.png)
 
 
 ## Desing and development features includes
