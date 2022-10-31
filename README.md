@@ -33,10 +33,11 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
 
 
 ## Desing and development features includes
-       library provided SecuritContext configuration for role based API access
-       Java 8 streams API
-       Mu standalone http web server
-       Handler mapping for rest resources and security features 
+       # library provided SecuritContext configuration for role based API access
+       # Java 8 streams API
+       # Mu standalone http web server
+       # Handler mapping for rest resources and security features
+       # inbuild https supprt enabling
 
 
        
