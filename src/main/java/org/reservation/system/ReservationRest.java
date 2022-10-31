@@ -29,6 +29,7 @@ public class ReservationRest {
 
         public static void main(String[] args) {
 
+            //to-do it should be configuration value
             usersToPasswordToRoles.put("Amit", singletonMap("s@curePa55word!", asList("User", "Admin")));
             usersToPasswordToRoles.put("Ram", singletonMap("password123", Collections.singletonList("User")));
 
