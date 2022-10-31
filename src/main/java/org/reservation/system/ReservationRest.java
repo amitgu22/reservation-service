@@ -7,8 +7,8 @@ import io.muserver.MuServerBuilder;
 import io.muserver.rest.BasicAuthSecurityFilter;
 import io.muserver.rest.RestHandlerBuilder;
 import org.reservation.system.model.Bookings;
-import org.reservation.system.util.MyAuthorizer;
-import org.reservation.system.util.MyUserPassAuthenticator;
+import org.reservation.system.util.Authorizer;
+import org.reservation.system.util.UserPassAuthenticator;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -33,8 +33,8 @@ public class ReservationRest {
             usersToPasswordToRoles.put("Amit", singletonMap("s@curePa55word!", asList("User", "Admin")));
             usersToPasswordToRoles.put("Ram", singletonMap("password123", Collections.singletonList("User")));
 
-            MyUserPassAuthenticator authenticator = new MyUserPassAuthenticator(usersToPasswordToRoles);
-            MyAuthorizer authorizer = new MyAuthorizer();
+            UserPassAuthenticator authenticator = new UserPassAuthenticator(usersToPasswordToRoles);
+            Authorizer authorizer = new Authorizer();
 
             HotelBookingResource hotelBookingResource = new HotelBookingResource();
             MuServer server = MuServerBuilder.httpsServer()

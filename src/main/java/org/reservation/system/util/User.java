@@ -3,10 +3,10 @@ package org.reservation.system.util;
 import java.security.Principal;
 import java.util.List;
 
-public class MyUser implements Principal {
+public class User implements Principal {
     private final String name;
     private final List<String> roles;
-    protected MyUser(String name, List<String> roles) {
+    protected User(String name, List<String> roles) {
         this.name = name;
         this.roles = roles;
     }

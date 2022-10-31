@@ -1,16 +1,14 @@
 package org.reservation.system.util;
 
-import io.muserver.rest.Authorizer;
-
 import java.security.Principal;
 
-public class MyAuthorizer implements Authorizer {
+public class Authorizer implements io.muserver.rest.Authorizer {
     @Override
     public boolean isInRole(Principal principal, String role) {
         if (principal == null) {
             return false;
         }
-        MyUser user = (MyUser)principal;
+        User user = (User)principal;
         return user.isInRole(role);
     }
 }

@@ -1,15 +1,13 @@
 package org.reservation.system.util;
 
-import io.muserver.rest.UserPassAuthenticator;
-
 import java.security.Principal;
 import java.util.List;
 import java.util.Map;
 
-public class MyUserPassAuthenticator implements UserPassAuthenticator {
+public class UserPassAuthenticator implements io.muserver.rest.UserPassAuthenticator {
     private final Map<String, Map<String, List<String>>> usersToPasswordToRoles;
 
-    public MyUserPassAuthenticator(Map<String, Map<String, List<String>>> usersToPasswordToRoles) {
+    public UserPassAuthenticator(Map<String, Map<String, List<String>>> usersToPasswordToRoles) {
         this.usersToPasswordToRoles = usersToPasswordToRoles;
     }
 
@@ -20,7 +18,7 @@ public class MyUserPassAuthenticator implements UserPassAuthenticator {
         if (user != null) {
             List<String> roles = user.get(password);
             if (roles != null) {
-                principal = new MyUser(username, roles);
+                principal = new User(username, roles);
             }
         }
         return principal;
