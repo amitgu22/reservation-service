@@ -62,7 +62,13 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
        
 
 
-       ![ADD_BOOKING](https://user-images.githubusercontent.com/11241862/199080813-e4ac4c7a-9829-4625-848e-3f2a38eaddba.png)
+ 
+ ![ADD_BOOKING](https://user-images.githubusercontent.com/11241862/199080925-e1e8c210-3873-4642-a644-8767eaff9429.png)
+ 
+ 
+
+ ![GET_BOOKINGS](https://user-images.githubusercontent.com/11241862/199080939-76a8ef1a-b663-498f-a1df-e2fea8815da8.png)
+
 
 
        
