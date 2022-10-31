@@ -37,7 +37,7 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
        # Java 8 streams API
        # Mu standalone http web server
        # Handler mapping for rest resources and security features
-       # https configuration using inbuild API
+       # Extremely simple HTTPS configuration 
 
 
        
