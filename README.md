@@ -73,9 +73,10 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
  
  
 
- ![GET_BOOKINGS](https://user-images.githubusercontent.com/11241862/199080939-76a8ef1a-b663-498f-a1df-e2fea8815da8.png)
 
 
 
-       
+
+![Screenshot 2022-11-01 010405](https://user-images.githubusercontent.com/11241862/199094272-760dbdf5-7f51-49bc-8968-a6f90420dc47.png)
+
 
