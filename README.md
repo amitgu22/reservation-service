@@ -58,6 +58,9 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
         "restaurantName": "China-Town"
        }
 
+
+       ## Basic Auth credentials required to access the API
+       Amit s@curePa55word!
        
 
 
