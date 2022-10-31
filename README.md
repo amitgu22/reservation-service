@@ -2,6 +2,10 @@
 
 REST API demonstration using MuServer library for simpler and faster REST API creation based on JAX-RS implementation.
 
+required versions
+JDK 16
+Maven 4.0.0
+
 ## Mu server API documentation - https://muserver.io/
 
        # Flexible routing and filtering with request handlers
