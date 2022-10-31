@@ -55,7 +55,7 @@ public class ReservationRest {
                     response.contentType("text/html");
                     response.write(getDemoPageHtml())
                     ;
-                    }).addHandler(Method.POST, "/", (request, response, pathParams) -> {
+                    }).addHandler(Method.POST, "/addBooking", (request, response, pathParams) -> {
                         response.contentType("text/html");
                         response.write(getDemoPageHtml())
                         ;
@@ -72,11 +72,14 @@ public class ReservationRest {
         @Path("/reservations")
         static class HotelBookingResource {
 
-            //required jdk 16 version
-            List<Bookings> bookingsArrayList = Stream.of(Bookings.builder().bookingId("0").startTime(LocalDateTime.now()).contactNumber("1234567877")
+            Bookings bookings = Bookings.builder().bookingId("0").startTime(LocalDateTime.now()).contactNumber("1234567877")
                     .customerName("Fung Chu").restaurantName("HongKongVillage").status("CONFIRMED_BOOKING").endTime(LocalDateTime.now().plusHours(2)).tableSize(2)
-                    .build()).toList();
-            private static final AtomicLong idCounter = new AtomicLong();
+                    .build();
+
+            ArrayList<Bookings> bookingsArrayList = new ArrayList<>(List.of(bookings));
+
+
+            private static final AtomicLong idCounter = new AtomicLong(1);
 
             public static String createID()
             {
