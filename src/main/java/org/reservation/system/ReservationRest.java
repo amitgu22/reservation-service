@@ -4,7 +4,10 @@ import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import io.muserver.Method;
 import io.muserver.MuServer;
 import io.muserver.MuServerBuilder;
+import io.muserver.openapi.OpenAPIObjectBuilder;
+import io.muserver.rest.ApiResponse;
 import io.muserver.rest.BasicAuthSecurityFilter;
+import io.muserver.rest.Description;
 import io.muserver.rest.RestHandlerBuilder;
 import org.reservation.system.model.Bookings;
 import org.reservation.system.util.Authorizer;
@@ -13,10 +16,14 @@ import org.reservation.system.util.UserPassAuthenticator;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
+import java.net.URI;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 import static io.muserver.Mutils.htmlEncode;
+import static io.muserver.openapi.ExternalDocumentationObjectBuilder.externalDocumentationObject;
+import static io.muserver.openapi.InfoObjectBuilder.infoObject;
+import static io.muserver.rest.CORSConfigBuilder.corsConfig;
 import static java.util.Arrays.asList;
 import static java.util.Collections.singletonMap;
 
@@ -42,11 +49,11 @@ public class ReservationRest {
                             RestHandlerBuilder.restHandler(hotelBookingResource).addRequestFilter(new BasicAuthSecurityFilter("Basic-Auth", authenticator, authorizer))
                                     .addCustomWriter(new JacksonJaxbJsonProvider())
                                     .addCustomReader(new JacksonJaxbJsonProvider())
-                    )
-                    .addHandler(Method.GET, "/getBookings", (request, response, pathParams) -> {
-                response.contentType("text/html");
-                response.write(getDemoPageHtml());
-            })
+                    ).addHandler(Method.GET, "/getBookings", (request, response, pathParams) -> {
+                    response.contentType("text/html");
+                    response.write(getDemoPageHtml())
+                    ;
+                    }).addHandler(createRestHandler())
                     .start();
 
             System.out.println("API example: " + server.uri().resolve("/reservations"));
@@ -69,6 +76,9 @@ public class ReservationRest {
             @GET
             @Path("/getBookings")
             @Produces("application/json")
+            @Description("Gets a single user")
+            @ApiResponse(code = "200", message = "Success")
+            @ApiResponse(code = "404", message = "No booking found")
             @HeaderParam(value = "userName")
             public List<Bookings> getBookings(@Context SecurityContext securityContext) {
                 if (!securityContext.isUserInRole("Admin")) {
@@ -88,6 +98,8 @@ public class ReservationRest {
             @Path("/addBooking")
             @Consumes("application/json")
             @Produces("text/plain")
+            @Description("Creates a new user")
+            @ApiResponse(code = "200", message = "Booking was created successfully")
             public String postBookings(Bookings bookings) {
                 String bookingId = createID();
                 // unique booking id creation
@@ -119,6 +131,28 @@ public class ReservationRest {
 
         html.append("</body></html>");
         return html.toString();
+    }
+
+    public static RestHandlerBuilder createRestHandler() {
+        return RestHandlerBuilder.restHandler(new HotelBookingResource())
+                .withCORS(corsConfig().withAllowedOriginRegex(".*"))
+                .withOpenApiHtmlUrl("/api.html")
+                .withOpenApiJsonUrl("/openapi.json")
+                .withOpenApiDocument(
+                        OpenAPIObjectBuilder.openAPIObject()
+                                .withInfo(
+                                        infoObject()
+                                                .withTitle("Reservation API Documentation")
+                                                .withDescription("Reservation system API documentation ")
+                                                .withVersion("1.0")
+                                                .build())
+                                .withExternalDocs(
+                                        externalDocumentationObject()
+                                                .withDescription("Documentation docs")
+                                                .withUrl(URI.create("https://muserver.io/jaxrs"))
+                                                .build()
+                                )
+                );
     }
 
     }
