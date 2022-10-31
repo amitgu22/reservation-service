@@ -59,10 +59,11 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
         "restaurantName": "China-Town"
        }
 
-       ![ADD_BOOKING](https://user-images.githubusercontent.com/11241862/199080652-17e69ea4-c406-4a11-b545-4666cbaba24b.png)
+       
 
 
-       ![image](https://user-images.githubusercontent.com/11241862/199079949-dc44d26f-e93e-4c37-88f6-692da79c6459.png)
+       ![ADD_BOOKING](https://user-images.githubusercontent.com/11241862/199080813-e4ac4c7a-9829-4625-848e-3f2a38eaddba.png)
+
 
        
 
