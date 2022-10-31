@@ -29,7 +29,7 @@ public class Bookings {
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime startTime;
 
-    @NonNull
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)private LocalDateTime endTime;

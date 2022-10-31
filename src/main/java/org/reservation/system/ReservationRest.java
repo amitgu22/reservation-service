@@ -17,6 +17,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
 import java.net.URI;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -49,14 +50,19 @@ public class ReservationRest {
                             RestHandlerBuilder.restHandler(hotelBookingResource).addRequestFilter(new BasicAuthSecurityFilter("Basic-Auth", authenticator, authorizer))
                                     .addCustomWriter(new JacksonJaxbJsonProvider())
                                     .addCustomReader(new JacksonJaxbJsonProvider())
-                    ).addHandler(Method.GET, "/getBookings", (request, response, pathParams) -> {
+                    ).addHandler(Method.GET, "/", (request, response, pathParams) -> {
                     response.contentType("text/html");
                     response.write(getDemoPageHtml())
                     ;
-                    }).addHandler(createRestHandler())
+                    }).addHandler(Method.POST, "/", (request, response, pathParams) -> {
+                        response.contentType("text/html");
+                        response.write(getDemoPageHtml())
+                        ;
+                    })
+                    .addHandler(createRestHandler())
                     .start();
 
-            System.out.println("API example: " + server.uri().resolve("/reservations"));
+            System.out.println("API example: " + server.uri().resolve("/api.html"));
         }
 
 
@@ -65,7 +71,10 @@ public class ReservationRest {
         @Path("/reservations")
         static class HotelBookingResource {
 
-            ArrayList<Bookings> bookingsArrayList = new ArrayList<>();
+            //required jdk 16 version
+            List<Bookings> bookingsArrayList = Arrays.asList(Bookings.builder().bookingId("0").startTime(LocalDateTime.now()).contactNumber("1234567877")
+                    .customerName("Fung Chu").restaurantName("HongKongVillage").status("CONFIRMED_BOOKING").endTime(LocalDateTime.now().plusHours(2)).tableSize(2)
+                    .build()).stream().toList();
             private static final AtomicLong idCounter = new AtomicLong();
 
             public static String createID()
@@ -100,7 +109,10 @@ public class ReservationRest {
             @Produces("text/plain")
             @Description("Creates a new user")
             @ApiResponse(code = "200", message = "Booking was created successfully")
-            public String postBookings(Bookings bookings) {
+            public String postBookings(@Context SecurityContext securityContext,Bookings bookings) {
+                if (!securityContext.isUserInRole("User")) {
+                    throw new ClientErrorException("This requires an Admin role", 403);
+                }
                 String bookingId = createID();
                 // unique booking id creation
                 bookings.setBookingId(bookingId);
