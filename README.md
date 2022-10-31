@@ -14,9 +14,12 @@ REST API demonstration using MuServer library for simpler and faster REST API ba
 
 
 ## Desing and development features includes
-       library provided SecuritContext for REST API
+       library provided SecuritContext for role based API access
        Java 8 streams API
        Mu standalone http web server
+       Handler mapping for rest resources and security features 
+
+
        
        
 ## JSON Request for adding new booking
