@@ -43,7 +43,7 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
        # Handler mapping for rest resources and security features
        # Extremely simple HTTPS configuration 
        # Handler mapping for documentation
-       # https://localhost:{port}/api.html
+       # API Documentation UI -- https://localhost:{port}/api.html
 
 
        
