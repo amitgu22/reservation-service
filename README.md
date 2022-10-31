@@ -29,7 +29,7 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
         "customerName": "Amit Gurav",
         "startTime": "2022-10-31 18:52:13",
         "tableSize": 4,
-        "contactNumber": "8655444075",
+        "contactNumber": "1234567898",
         "restaurantName": "China-Town"
     }
 
