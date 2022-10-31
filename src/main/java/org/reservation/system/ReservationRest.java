@@ -20,6 +20,7 @@ import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.stream.Stream;
 
 import static io.muserver.Mutils.htmlEncode;
 import static io.muserver.openapi.ExternalDocumentationObjectBuilder.externalDocumentationObject;
@@ -72,9 +73,9 @@ public class ReservationRest {
         static class HotelBookingResource {
 
             //required jdk 16 version
-            List<Bookings> bookingsArrayList = Arrays.asList(Bookings.builder().bookingId("0").startTime(LocalDateTime.now()).contactNumber("1234567877")
+            List<Bookings> bookingsArrayList = Stream.of(Bookings.builder().bookingId("0").startTime(LocalDateTime.now()).contactNumber("1234567877")
                     .customerName("Fung Chu").restaurantName("HongKongVillage").status("CONFIRMED_BOOKING").endTime(LocalDateTime.now().plusHours(2)).tableSize(2)
-                    .build()).stream().toList();
+                    .build()).toList();
             private static final AtomicLong idCounter = new AtomicLong();
 
             public static String createID()
