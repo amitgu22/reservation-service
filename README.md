@@ -45,7 +45,9 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
        
 ## JSON Request for adding new booking
 
-            
+       API details can be obtain using Open API documentaion link
+       
+       https://localhost:{port}/api.html
 
        {
         "status": "New Booking",
