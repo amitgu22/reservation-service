@@ -39,13 +39,15 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
        # Handler mapping for rest resources and security features
        # Extremely simple HTTPS configuration 
        # Handler mapping for documentation
+       # https://localhost:{port}/api.html
 
 
        
        
 ## JSON Request for adding new booking
 
-            
+       
+   
 
        {
         "status": "New Booking",
@@ -55,6 +57,21 @@ REST API demonstration using MuServer library for simpler and faster REST API cr
         "contactNumber": "1234567898",
         "restaurantName": "China-Town"
        }
+
+
+       ## Basic Auth credentials required to access the API
+       Amit s@curePa55word!
+       
+
+
+ 
+ ![ADD_BOOKING](https://user-images.githubusercontent.com/11241862/199080925-e1e8c210-3873-4642-a644-8767eaff9429.png)
+ 
+ 
+
+ ![GET_BOOKINGS](https://user-images.githubusercontent.com/11241862/199080939-76a8ef1a-b663-498f-a1df-e2fea8815da8.png)
+
+
 
        
 
